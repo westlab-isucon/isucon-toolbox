@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt -y install unzip gnupg2 wget
+sudo apt -y install unzip gnupg2 wget htop
 
 # alp(1.0.3)
 wget https://github.com/tkuchiki/alp/releases/download/v1.0.3/alp_linux_amd64.zip

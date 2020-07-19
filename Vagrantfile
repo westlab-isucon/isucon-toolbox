@@ -71,5 +71,14 @@ Vagrant.configure("2") do |config|
     debconf-set-selections <<< 'mysql-server mysql-server/root_password password pass'
     debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password pass'
     apt install -y git mysql-server nginx
+    useradd -m isucon
+    gpasswd -a isucon sudo
+    echo "isucon:password" | chpasswd
+    echo "isucon ALL=NOPASSWD: ALL" | EDITOR='tee -a' visudo >/dev/null
+    su - isucon
+    sh /vagrant/script/install-go.sh
+    sh /vagrant/script/install-profiler.sh
+    sh /vagrant/script/create_dbuser.sh
+    echo "export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH" > ~/.bash_profile
   SHELL
 end

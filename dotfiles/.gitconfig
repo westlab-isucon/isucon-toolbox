@@ -1,0 +1,20 @@
+[user]
+  name = "NoharaMasato"
+  email = "masato338914914@gmail.com"
+
+[alias]
+  st = status
+  cop = checkout -p
+  co = checkout
+  br = branch
+  df = diff
+  dfc = diff --cached
+  cm = commit
+  cma = commit --amend
+  cman = commit --amend --no-edit
+
+[core]
+  editor = vim
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/

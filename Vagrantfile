@@ -63,21 +63,32 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # プロビジョニングシェル
-  config.vm.provision "shell", inline: <<-SHELL
+  # 環境変数次第でisuconユーザでログインできるようにする
+  # isuconユーザでログインしたい場合は ローカルマシンで下記コマンドを実行
+  # $ export ISCN_INIT=TRUE
+  # isuconユーザでログインしたくない時(初期起動時など)は環境変数をunsetする
+  # $ unset ISCN_INIT
+  
+  config.ssh.username = "isucon" if ENV['ISCN_INIT']
+  config.ssh.private_key_path = "./sshkey/isucon-dev.pem" if ENV['ISCN_INIT']
+
+  config.vm.provision :root_user, type: "shell", inline: <<-SHELL
+    # プロビジョニングシェル(rootユーザで実行)
     apt update
     debconf-set-selections <<< 'mysql-server mysql-server/root_password password pass'
     debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password pass'
     apt install -y git mysql-server nginx
-    useradd -m isucon
+    useradd -m isucon -s /bin/bash
     gpasswd -a isucon sudo
     echo "isucon:password" | chpasswd
     echo "isucon ALL=NOPASSWD: ALL" | EDITOR='tee -a' visudo >/dev/null
-    su - isucon
-    sh /vagrant/script/install-go.sh
-    sh /vagrant/script/install-profiler.sh
     sh /vagrant/script/create_dbuser.sh
     sh /vagrant/script/create_my_cnf.sh
-    echo "export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH" > ~/.bash_profile
+    # プロビジョニングシェル(isuconユーザで実行)
+    sudo -u isucon sudo sh /vagrant/script/install-go.sh
+    sudo -u isucon sudo sh /vagrant/script/install-profiler.sh
+    sudo -u isucon sudo sh /vagrant/script/add_publickey.sh
+    sudo -u isucon echo "export PATH=/home/isucon/local/go/bin:$HOME/go/bin:$PATH" > /home/isucon/.bash_profile
+    chown -R isucon.isucon /home/isucon/*
   SHELL
 end

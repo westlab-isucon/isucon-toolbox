@@ -75,15 +75,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision :root_user, type: "shell", inline: <<-SHELL
     # プロビジョニングシェル(rootユーザで実行)
     apt update
-    #debconf-set-selections <<< 'mysql-server mysql-server/root_password password pass'
-    #debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password pass'
-    #apt install -y git mysql-server nginx
+    debconf-set-selections <<< 'mysql-server mysql-server/root_password password pass'
+    debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password pass'
+    apt install -y git mysql-server nginx
     useradd -m isucon -s /bin/bash
     gpasswd -a isucon sudo
     echo "isucon:password" | chpasswd
     echo "isucon ALL=NOPASSWD: ALL" | EDITOR='tee -a' visudo >/dev/null
-    #sh /vagrant/script/create_dbuser.sh
-    #sh /vagrant/script/create_my_cnf.sh
+    sh /vagrant/script/create_dbuser.sh
+    sh /vagrant/script/create_my_cnf.sh
     # プロビジョニングシェル(isuconユーザで実行)
     sudo -u isucon sudo sh /vagrant/script/install-go.sh
     sudo -u isucon sudo sh /vagrant/script/install-profiler.sh

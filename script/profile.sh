@@ -1,4 +1,3 @@
-# --slack-postでslack通知をするようにしたい
 #! /bin/sh
 
 sudo alp --file /var/log/nginx/access.log ltsv --sort=avg --reverse | head -n 20

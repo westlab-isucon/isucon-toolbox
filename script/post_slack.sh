@@ -56,3 +56,4 @@ WEBMESSAGE='```'`cat ${MESSAGEFILE}`'```'
 
 #Incoming WebHooks送信
 curl -s -S -X POST --data-urlencode "payload={\"channel\": \"${CHANNEL}\", \"username\": \"${BOTNAME}\", \"icon_emoji\": \"${FACEICON}\", \"text\": \"${MESSAGE}${WEBMESSAGE}\" }" ${WEBHOOKURL} >/dev/null
+

@@ -1,3 +1,4 @@
+#! /bin/sh
 sudo apt update
 sudo apt -y install unzip gnupg2 wget htop
 

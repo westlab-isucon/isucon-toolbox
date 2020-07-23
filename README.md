@@ -22,6 +22,15 @@ https://app.vagrantup.com/ubuntu/boxes/xenial64
 この辺を参考  
 https://qiita.com/pugiemonn/items/bcd95a35c3ec7624cd61
 
+## 注意事項
+
+初回起動時(ローカルに isucon ユーザのキーペアがない場合のみ)下記スクリプトを実行してキーペアを作成する必要がある。  
+やらないとおそらく vagrant up 時にエラーになる可能性あり。
+
+```
+$ ./.create.isucon.pem.sh
+```
+
 ## vagrant ssh した時に isucon ユーザでログインしたい時
 
 下記のスクリプトを実行して秘密鍵を作成

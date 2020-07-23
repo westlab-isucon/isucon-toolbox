@@ -63,9 +63,7 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
+  # プロビジョニングシェル
   config.vm.provision "shell", inline: <<-SHELL
     apt update
     debconf-set-selections <<< 'mysql-server mysql-server/root_password password pass'
@@ -79,6 +77,7 @@ Vagrant.configure("2") do |config|
     sh /vagrant/script/install-go.sh
     sh /vagrant/script/install-profiler.sh
     sh /vagrant/script/create_dbuser.sh
+    sh /vagrant/script/create_my_cnf.sh
     echo "export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH" > ~/.bash_profile
   SHELL
 end

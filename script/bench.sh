@@ -1,5 +1,5 @@
 #! /bin/sh
-REMOTE_IP=172.31.12.158
+REMOTE_IP=0.0.0.0
 BENCH_DIR=/home/isucon/isubata/bench/
 
 cd $BENCH_DIR

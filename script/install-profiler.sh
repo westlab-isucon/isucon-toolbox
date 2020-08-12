@@ -16,3 +16,4 @@ sudo apt update
 sudo apt -y install percona-toolkit
 rm percona-release_latest.$(lsb_release -sc)_all.deb
 
+sudo apt insatll jq

@@ -89,7 +89,6 @@ Vagrant.configure("2") do |config|
     sudo -u isucon sudo sh /vagrant/script/install-go.sh
     sudo -u isucon sudo sh /vagrant/script/install-profiler.sh
     sudo -u isucon sudo sh /vagrant/script/add_publickey.sh
-    sudo -u isucon echo "export PATH=/home/isucon/local/go/bin:$HOME/go/bin:$PATH" > /home/isucon/.bash_profile
     chown -R isucon.isucon /home/isucon/*
   SHELL
 end

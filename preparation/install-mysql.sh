@@ -1,13 +1,14 @@
-#! /bin/sh
+#!/bin/sh
+set -e
 sudo apt update
-sudo apt -y install unzip gnupg2 wget htop
+sudo apt -y install unzip gnupg2 wget htop jq
 
-# alp(1.0.3)
-wget https://github.com/tkuchiki/alp/releases/download/v1.0.3/alp_linux_amd64.zip
-unzip alp_linux_amd64.zip
-sudo mv alp /usr/local/bin/alp
-sudo chown root:root /usr/local/bin/alp
-rm alp_linux_amd64.zip
+# mysql8
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.14-1_all.deb
+sudo dpkg -i ./mysql-apt-config_0.8.14-1_all.deb
+sudo apt update
+sudo apt install mysql-server
+rm mysql-apt-config_0.8.14-1_all.deb
 
 # pt-query-digest(percona-toolkit:3.2)
 wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
@@ -15,5 +16,3 @@ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 sudo apt update
 sudo apt -y install percona-toolkit
 rm percona-release_latest.$(lsb_release -sc)_all.deb
-
-sudo apt insatll jq

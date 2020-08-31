@@ -9,3 +9,7 @@ git clone https://github.com/tagomoris/xbuild.git
 
 xbuild/go-install -f 1.14 /home/isucon/local/go
 echo 'export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH' >> ~/.bash_profile
+source ~/.bash_profile
+
+# pprof
+go get -u github.com/google/pprof

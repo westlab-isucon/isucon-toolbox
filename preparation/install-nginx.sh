@@ -13,3 +13,5 @@ rm alp_linux_amd64.zip
 
 sudo cp ../nginx/nginx.conf /etc/nginx/sites-enabled/
 
+sudo systemctl enable nginx
+sudo systemctl startn nginx

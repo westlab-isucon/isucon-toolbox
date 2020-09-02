@@ -14,6 +14,9 @@ sudo cp ../mysql/my.cnf /etc/mysql/
 sudo systemctl start mysql
 sudo systemctl enable mysql
 
+sudo systemctl enable mysql
+sudo systemctl start mysql
+
 # pt-query-digest(percona-toolkit:3.2)
 # wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
 # sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb

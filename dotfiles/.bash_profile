@@ -5,8 +5,7 @@ export PS1='\[\033[35m\]\h:\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
 export EDITOR=vim
 
-export GOPATH=/home/isucon/isubata/webapp/go
-export PATH=/home/isucon/local/go/bin:$HOME/go/bin:$PATH
+export GOPATH=~/go
 
 # エイリアス
 alias ls='ls --color'

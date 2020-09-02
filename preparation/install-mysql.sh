@@ -11,7 +11,6 @@ sudo apt -y install mysql-server
 rm mysql-apt-config_0.8.14-1_all.deb
 
 sudo cp ../mysql/my.cnf /etc/mysql/
-
 sudo systemctl enable mysql
 sudo systemctl start mysql
 

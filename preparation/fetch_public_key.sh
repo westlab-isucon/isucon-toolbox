@@ -8,3 +8,4 @@ curl https://github.com/NoharaMasato.keys >> ~/.ssh/authorized_keys
 curl https://github.com/katokiminori.keys >> ~/.ssh/authorized_keys
 curl https://github.com/yoshi0202.keys >> ~/.ssh/authorized_keys
 
+sudo chmod 600 ~/.ssh/authorized_keys

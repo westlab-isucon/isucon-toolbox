@@ -52,3 +52,7 @@ $ export ISCN_INIT=TRUE
 ```
 $ unset ISCN_INIT
 ```
+
+### EC2 構築手順
+
+doc ディレクトリ内に設置

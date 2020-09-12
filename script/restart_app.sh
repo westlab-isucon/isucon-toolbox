@@ -2,11 +2,11 @@
 
 set -e
 
-APP_DIR=/home/isucon/isubata/webapp/go/
+APP_DIR=/home/isucon/isuumo/webapp/go/
 
 cd $APP_DIR
-git pull origin master
+#git pull origin master
 make
-sudo systemctl restart isubata.golang.service
+sudo systemctl restart isuumo.go.service
 
 echo "build and restart app"

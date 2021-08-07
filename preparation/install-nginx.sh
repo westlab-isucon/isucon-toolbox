@@ -4,7 +4,7 @@ sudo apt update
 sudo apt -y install nginx
 sudo apt -y install unzip gnupg2 wget htop
 
-sudo cp ../nginx/nginx.conf /etc/nginx/sites-enabled/
+sudo cp ./nginx/nginx.conf /etc/nginx/sites-enabled/
 sudo unlink /etc/nginx/sites-enabled/default
 sudo systemctl start nginx
 sudo systemctl enable nginx

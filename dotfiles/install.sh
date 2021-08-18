@@ -1,4 +1,5 @@
 #! /bin/sh
-ln -snfv $PWD/.bash_profile ~/.bash_profile
-ln -snfv $PWD/.tmux.conf ~/.tmux.conf
+cp .bash_profile ~/.bash_profile
+cp .tmux.conf ~/.tmux.conf
+cp .gitconfig ~/.gitconfig
 

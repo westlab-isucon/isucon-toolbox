@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # root権限で実行する
 
 set -e
